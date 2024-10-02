@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "862583580264",
+    "project_id": "amimobile4-2920f",
+    "storage_bucket": "amimobile4-2920f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:862583580264:android:2b9967dd52400adf7d7ddd",
+        "android_client_info": {
+          "package_name": "com.example.amimobile2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHJwCGlA6sXsFRyOA1B297gTWWVxHfvu4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

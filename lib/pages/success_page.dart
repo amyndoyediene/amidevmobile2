@@ -43,7 +43,8 @@ class SuccessPage extends StatelessWidget {
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.green,
-                  padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -52,7 +53,10 @@ class SuccessPage extends StatelessWidget {
                   // Redirection vers la page de connexion ou la page d'accueil
                   Navigator.pushAndRemoveUntil(
                     context,
-                    MaterialPageRoute(builder: (context) => const LoginPage(username: '',)), // Remplacez LoginPage par la page que vous souhaitez
+                    MaterialPageRoute(
+                        builder: (context) => const LoginPage(
+                              username: '',
+                            )), // Remplacez LoginPage par la page que vous souhaitez
                     (route) => false, // Supprime toutes les routes précédentes
                   );
                 },

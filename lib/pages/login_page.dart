@@ -1,3 +1,4 @@
+import 'package:amimobile2/pages/acceuil_page.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import '../services/api_service.dart';
@@ -22,7 +23,8 @@ class Config {
 }
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key, required String username}) : super(key: key);
+  final String username;
+  const LoginPage({Key? key, required this.username}) : super(key: key);
 
   @override
   _LoginPageState createState() => _LoginPageState();
@@ -183,94 +185,86 @@ class _LoginPageState extends State<LoginPage> {
           ),
           const SizedBox(height: 20),
           Center(
+            // child: ElevatedButton(
+            //   style: ElevatedButton.styleFrom(
+            //     backgroundColor: HexColor("283B71"),
+            //     padding:
+            //         const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+            //     shape: RoundedRectangleBorder(
+            //       borderRadius: BorderRadius.circular(10),
+            //     ),
+            //   ),
+            //   onPressed: () {
+            //     if (validateAndSave()) {
+            //       setState(() {
+            //         isApiCallProcess = true;
+            //       });
+
+            //       LoginRequestModel model = LoginRequestModel(
+            //         username: userName!,
+            //         password: password!,
+            //       );
+
+            //       APIService.login(model).then((response) {
+            //         setState(() {
+            //           isApiCallProcess = false;
+            //         });
+
+            //         if (response) {
+            //           Navigator.push(
+            //             context,
+            //             MaterialPageRoute(
+            //               builder: (context) => accueuilPage(),
+            //             ),
+            //           );
+            //         } else {
+            //           showDialog(
+            //             context: context,
+            //             builder: (context) => AlertDialog(
+            //               title: const Text(Config.appName),
+            //               content: const Text("Invalid Username/Password !!"),
+            //               actions: <Widget>[
+            //                 TextButton(
+            //                   child: const Text("OK"),
+            //                   onPressed: () {
+            //                     MaterialPageRoute(
+            //                       builder: (context) => accueuilPage(),
+            //                     );
+            //                   },
+            //                 ),
+            //               ],
+            //             ),
+            //           );
+            //         }
+            //       });
+            //     }
+            //   },
+            //   child: const Text(
+            //     "Login",
+            //     style: TextStyle(color: Colors.white),
+            //   ),
+            // ),
             child: ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => accueuilPage()),
+                );
+              },
               style: ElevatedButton.styleFrom(
-                backgroundColor: HexColor("283B71"),
+                backgroundColor: Colors.orangeAccent, // Couleur or clair
                 padding:
                     const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
+              ),
+              child: const Text(
+                'Se connecter',
+                style: TextStyle(
+                  color: Colors.white, // Texte en blanc
+                  fontSize: 18,
                 ),
               ),
-              onPressed: () {
-                if (validateAndSave()) {
-                  setState(() {
-                    isApiCallProcess = true;
-                  });
-
-                  LoginRequestModel model = LoginRequestModel(
-                    username: userName!,
-                    password: password!,
-                  );
-
-                  APIService.login(model).then((response) {
-                    setState(() {
-                      isApiCallProcess = false;
-                    });
-
-                    if (response) {
-                      Navigator.pushNamedAndRemoveUntil(
-                          context, '/acceuil', (route) => false);
-                    } else {
-                      showDialog(
-                        context: context,
-                        builder: (context) => AlertDialog(
-                          title: const Text(Config.appName),
-                          content: const Text("Invalid Username/Password !!"),
-                          actions: <Widget>[
-                            TextButton(
-                              child: const Text("OK"),
-                              onPressed: () {
-                                Navigator.of(context).pop();
-                              },
-                            ),
-                          ],
-                        ),
-                      );
-                    }
-                  });
-                }
-              },
-              child: const Text(
-                "Login",
-                style: TextStyle(color: Colors.white),
-              ),
             ),
           ),
-          const SizedBox(height: 20),
-          const Center(
-            child: Text(
-              "OR",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 18,
-                color: Colors.white,
-              ),
-            ),
-          ),
-          const SizedBox(height: 20),
-          Center(
-            child: RichText(
-              text: TextSpan(
-                style: const TextStyle(color: Colors.white, fontSize: 14.0),
-                children: <TextSpan>[
-                  const TextSpan(text: "Don't have an account? "),
-                  TextSpan(
-                    text: 'Sign up',
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    recognizer: TapGestureRecognizer()
-                      ..onTap = () {
-                        Navigator.pushNamed(context, '/register');
-                      },
-                  ),
-                ],
-              ),
-            ),
-          ),
-          const SizedBox(height: 20),
         ],
       ),
     );
@@ -284,4 +278,6 @@ class _LoginPageState extends State<LoginPage> {
     }
     return false;
   }
+
+  accueuilPage() {}
 }

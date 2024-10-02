@@ -1,3 +1,5 @@
+import 'package:amimobile2/pages/detail_articles.dart';
+import 'package:amimobile2/pages/welcome_Page.dart';
 import 'package:flutter/material.dart';
 
 class accueuilPage extends StatelessWidget {
@@ -17,7 +19,7 @@ class accueuilPage extends StatelessWidget {
                 // Action pour la météo
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => WeatherPage()),
+                  MaterialPageRoute(builder: (context) => articlePage()),
                 );
               },
               child: Text('Météo'),
@@ -28,9 +30,10 @@ class accueuilPage extends StatelessWidget {
                 // Action pour les news
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => NewsPage()),
+                  MaterialPageRoute(builder: (context) =>  const DetailArticles()),
                 );
               },
+              
               child: Text('News'),
             ),
           ],
@@ -41,12 +44,12 @@ class accueuilPage extends StatelessWidget {
 }
 
 // Créez des pages vides pour WeatherPage et NewsPage pour l'instant
-class WeatherPage extends StatelessWidget {
+class articlePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Météo')),
-      body: Center(child: Text('Informations météo')),
+      body: Center(child: Text('Informations météo et')),
     );
   }
 }
@@ -56,7 +59,7 @@ class NewsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('News')),
-      body: Center(child: Text('Informations de News')),
+      body: Center(child: Text('Informations de News et')),
     );
   }
 }

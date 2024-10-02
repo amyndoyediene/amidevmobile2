@@ -20,8 +20,14 @@ void main() async {
   if (_result) {
     _defaultHome = const HomePage();
   }
+   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
 
   runApp(const MyApp());
+}
+
+class Firebase {
+  static initializeApp() {}
 }
 
 class MyApp extends StatelessWidget {
@@ -35,20 +41,20 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      //home: const LoginPage(),
-      routes: {
-        '/': (context) => _defaultHome,
-        '/home': (context) => const HomePage(),
-        '/welcome': (context) => const WelcomePage(),
-        '/acceuil': (context) => accueuilPage(),
-        '/login': (context) => const LoginPage(
-              username: '',
-            ),
-        '/register': (context) => const RegisterPage(),
-        '/success': (context) => const SuccessPage(
-              username: 'ami',
-            )
-      },
+      home: const WelcomePage(),
+      // routes: {
+      //   // '/': (context) => _defaultHome,
+      //   // '/home': (context) => const HomePage(),
+      //   '/welcome': (context) => const WelcomePage(),
+      //   '/acceuil': (context) => accueuilPage(),
+      //   '/login': (context) => const LoginPage(
+      //         username: '',
+      //       ),
+      //   '/register': (context) => const RegisterPage(),
+      //   '/success': (context) => const SuccessPage(
+      //         username: 'ami',
+      //       )
+      // },
     );
   }
 }

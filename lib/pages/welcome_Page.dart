@@ -15,7 +15,7 @@ class WelcomePage extends StatelessWidget {
             decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(
-                    'assets/images/image_2.jpg'), // Remplacez par le chemin vers votre logo
+                    'assets/images/image-2.jpg'), // Remplacez par le chemin vers votre logo
                 fit: BoxFit
                     .cover, // Ajustez la façon dont l'image remplit l'écran
               ),
@@ -49,10 +49,10 @@ class WelcomePage extends StatelessWidget {
             child: Center(
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.pushReplacement(
+                  Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const WelcomePage()),
+                        builder: (context) => const LoginPage(username: '',)),
                   );
                 },
                 style: ElevatedButton.styleFrom(
